@@ -9,11 +9,17 @@
 <script setup></script>
 
 <style scoped>
-.footer {
+/* .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 4em;
+  height: 100%;
+} */
+.footer{
+  bottom: 0;
+  padding-bottom: 0%;
+  position: sticky;
+  /* height: auto; */
 }
 
 </style>

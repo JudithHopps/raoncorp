@@ -14,4 +14,5 @@ import FooterComponentVue from './components/layout/FooterComponent.vue';
 <style>
 
 
+
 </style>
