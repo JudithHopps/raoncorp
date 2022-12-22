@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../pages/HomeView.vue";
 import IntroView from "../pages/IntroView.vue";
 import ArticleView from "../pages/ArticleView.vue";
+import BlockchainView from "../pages/BlockchainView.vue";
+
 const routes = [
   {
     path: "/",
@@ -17,6 +19,11 @@ const routes = [
     path: "/article",
     name: "article",
     component: ArticleView,
+  },
+  {
+    path: "/blockchain",
+    name: "blockchain",
+    component: BlockchainView,
   },
   // {
   //   path: "/about",

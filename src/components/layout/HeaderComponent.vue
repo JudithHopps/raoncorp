@@ -14,6 +14,12 @@
         <li class="nav-item">
           <a class="nav-link" href="/intro" style="color:white;">intro</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/article" style="color:white;">article</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blockchain" style="color:white;">blockchain</a>
+        </li>
         
       </ul>
 
