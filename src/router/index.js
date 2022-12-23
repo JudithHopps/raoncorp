@@ -3,6 +3,7 @@ import HomeView from "../pages/HomeView.vue";
 import IntroView from "../pages/IntroView.vue";
 import ArticleView from "../pages/ArticleView.vue";
 import BlockchainView from "../pages/BlockchainView.vue";
+import RaonView from "../pages/RaonView.vue";
 
 const routes = [
   {
@@ -25,6 +26,16 @@ const routes = [
     name: "blockchain",
     component: BlockchainView,
   },
+  {
+    path: "/raon",
+    name: "raon",
+    component: RaonView,
+  },
+  // {
+  //   path: "/button",
+  //   name: "button",
+  //   component: buttonComponent,
+  // },
   // {
   //   path: "/about",
   //   name: "about",
