@@ -86,7 +86,7 @@
   </div>
 </div>
 
-  <ButtonComponentVue />
+  <a href="/raon" style="text-decoration:none;"><ButtonComponentVue /></a>
 
 </div>
 </template>
@@ -209,8 +209,5 @@ letter-spacing: .05em;
 margin: 2em 0 0 0;
 }
 
-section{
-margin-top: 1em;
-text-align: center;
-}
+
 </style>
