@@ -1,227 +1,60 @@
 <template>
-    <ul>
-      <li
-        v-for="(article, i) in articles"
-        :style="`background-image: url(${article.backgroundUrl});`"
-        role="button"
-        :class="active === i ? 'active' : ''"
-        @click="() => (active = i)"
-        :key="i"
-      >
-        <h3>{{ article.title }}</h3>
-        <div class="section-content">
-          <div class="inner">
-            <div class="bio">
-              <h2>{{ article.title }}</h2>
-              <p>
-                {{ article.description }}
-              </p>
-  
-              <a
-                :href="article.articleUrl"
-                target="_blank"
-                class="article-profile-link md:hidden"
-              >
-                <img
-                  src="../assets/articleButton.jpg"
-                  alt="Listen on Spotify"
-                  width="150"
-                  loading="lazy"
-                  class ="Btn"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </template>
- 
-  
+  <suspense>
+    <template #default>
+      <ArticleCopponent />
+    </template>
 
-
-  <script>
-  export default {
-    
-    data() {
-      return {
-        articles: [],
-        active : 0,
-        
-      };
-    },
-    created() {
-      this.getList();
-    },
-    methods: {
-      async getList() {
-        this.articles = await this.$api(
-          "https://317063c7-d634-4287-b420-c464099608f2.mock.pstmn.io/article", "get"
-        );
-      },
-    },
-  };
-  </script>
-
-   
-<style scoped lang="scss">
-body {
-  font-family: "Roboto Condensed", sans-serif;
-  color: #fff;
-  line-height: 24px;
-  font-size: 16px;
-}
-
-.bio {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-rows: min-content;
-  grid-gap: 24px;
-}
-
-ul {
-  display: flex;
-  min-height: 750px;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  list-style-type: none;
-  width: 100%;
-  min-width: 100%;
-  flex-direction: column;
-
-  @media only screen and (min-width: 1280px) {
-    flex-direction: row;
-  }
-}
-
-li {
-  flex: 1;
-  display: flex;
-  align-items: stretch;
-  cursor: pointer;
-  transition: all 0.35s ease;
-  cursor: pointer;
-  position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
-  overflow: hidden;
-  
-  
-
-  &.active {
-    flex: 6;
-    cursor: default;
-
-    &:before {
-      background: linear-gradient(0deg, rgba(15, 15, 15, 0) 0%, #111111 100%); // 차이 유무 없음
+    <template #fallback>
       
-    }
-  }
+      <div class="spinner-box" >
+          <div class="pulse-container">  
+            <div class="pulse-bubble pulse-bubble-1"></div>
+            <div class="pulse-bubble pulse-bubble-2"></div>
+            <div class="pulse-bubble pulse-bubble-3"></div>
+          </div>
+      </div>
+
+    </template>
+  </suspense>
+</template>
+
+<script setup>
+import ArticleCopponent from "../components/UtilityComponent/ArticleComponent.vue"
+</script>
+
+<style scoped>
+.spinner-box{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  height: 100vh;
 }
-
-h2 {
-  font-size: 36px;
-  line-height: 36px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: white;
-  -webkit-text-stroke: 0.3px black;
-  @media only screen and (min-width: 768px) {
-    font-size: 48px;
-    line-height: 48px;
-  }
-
-  @media only screen and (max-width: 1280px) {
-    font-size: 64px;
-    line-height: 64px;
-  }
-}
-
-h3 {
-  font-weight: bold;
-  white-space: nowrap;
-  position: absolute;
-  z-index: 30;
-  opacity: 1;
-  // color: white;
-  // -webkit-text-stroke: 0.3px black;
-  top: 50%;
-  left: 50%;
-  transition: top 0.35s, opacity 0.15s;
-  transform-origin: 0 0;
-  font-size: 24px;
-  text-transform: uppercase;
-  transform: translate(-50%, -50%) rotate(0deg);
-
-  @media only screen and (min-width: 1280px) {
-    top: 100%;
-    left: 50%;
-    font-size: 22px;
-    transform: translate(-20px, -50%) rotate(-90deg);
-  }
-
-  .active & {
-    opacity: 0;
-    top: 200%;
-  }
-}
-
-.section-content {
-  position: relative;
-  z-index: 30;
-  opacity: 0;
-  align-self: flex-end;
-  width: 100%;
-  transition: all 0.35s 0.1s ease-out;
-
-  .active & {
+@keyframes pulse {
+  from {
     opacity: 1;
+    transform: scale(1);
   }
-
-  .inner {
-    position: absolute;
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: 1fr;
-    grid-column-gap: 20px;
-    align-items: flex-end;
-    left: 0;
-    bottom: 0;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.25s ease-out;
-
-    @media only screen and (min-width: 768px) {
-      grid-auto-flow: column;
-      grid-template-columns: calc(100% - 340px) 300px;
-      grid-column-gap: 40px;
-      padding: 40px;
-    }
-
-    @media only screen and (max-width: 1280px) {
-      grid-auto-flow: column;
-      grid-template-columns: 460px 200px;
-      grid-column-gap: 40px;
-      padding: 40px;
-    }
-
-    .active & {
-      opacity: 1;
-    }
+  to {
+    opacity: .25;
+    transform: scale(.75);
   }
 }
-
-.article-profile-link {
-  pointer-events: none;
-
-  .active & {
-    pointer-events: all;
-  }
+.pulse-bubble {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ff7f00;  
+  display:inline-block;
 }
-.Btn{
-  border-radius: 5%;
+
+.pulse-bubble-1 {
+    animation: pulse .4s ease 0s infinite alternate;
 }
+.pulse-bubble-2 {
+    animation: pulse .4s ease .2s infinite alternate;
+}
+.pulse-bubble-3 {
+    animation: pulse .4s ease .4s infinite alternate;
+}
+
 </style>
