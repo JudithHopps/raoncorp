@@ -41,6 +41,7 @@
    top:0px;
    z-index:6;
    width:100%;
+   height: 2.5em;
    
 }
 </style>
