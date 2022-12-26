@@ -86,7 +86,7 @@
   </div>
 </div>
 
-  <a href="/raon" style="text-decoration:none;"><ButtonComponentVue /></a>
+  <a href="/raon" style="text-decoration:none;"><ButtonComponentVue /></a><br/>
 
 </div>
 </template>

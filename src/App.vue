@@ -17,7 +17,7 @@ import FooterComponentVue from './components/layout/FooterComponent.vue';
 #wrapper{
   height: auto;
   min-height: 100%;
-  padding-bottom: 0.4em;
+  padding-bottom: 0.6em;
 }
 
 
