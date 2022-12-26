@@ -34,10 +34,14 @@
   
 <script setup />
 <style scoped>
+
 .header {
-  top: 0;
-  padding-top: 0%;
-  position: sticky;
+   position:fixed;
+   left:0px;
+   top:0px;
+   z-index:6;
+   width:100%;
+   
 }
 </style>
  

@@ -60,7 +60,7 @@ import ButtonComponent from '@/components/UtilityComponent/ButtonComponent.vue';
 
 </script>
 
-<style>
+<style scoped>
 button{
     color:orange;
 }
