@@ -9,12 +9,12 @@ npm install
 ![image](https://user-images.githubusercontent.com/113181934/208384528-44bec888-7a87-48d7-adf5-a9aae63628c7.png)
 
 
-### Compiles and minifies for production
+### Commit message format
 ```
-npm run build
+유수빈 - header 컴포넌트 구현
 ```
 
-### Lints and fixes files
+### contributer
 ```
 npm run lint
 ```
