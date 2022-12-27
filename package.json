@@ -2,10 +2,14 @@
   "name": "raoncorp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://JudithHopps.github.io/raoncorp/" ,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "predeploy": "vue-cli-service build",
+    "deploy": "gh-pages -d dist",
+    "clean": "gh-pages-clean"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
@@ -28,6 +32,7 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "gh-pages": "^4.0.0",
     "node-sass": "^8.0.0",
     "sass-loader": "^13.2.0"
   },
